@@ -4,9 +4,9 @@ public class EmpWage
 {
     public static void main(String[] args)
     {
-        final int empWagePerHour = 20;
-        int fullTimeHours = 0;
-        int partTimeHours = 0;
+        int empWagePerHour = 20;
+         int fullTimeHours = 0;
+         int partTimeHours = 0;
         int workingDaysPerMonth = 0;
         int monthlyWorkHours = 0;
 
@@ -33,5 +33,6 @@ public class EmpWage
         System.out.println("Total working hours:" +(fullTimeHours+partTimeHours));
         int monthlyWage = empWagePerHour * monthlyWorkHours;
         System.out.println("Total wage for the month: " + monthlyWage);
+
     }
 }
