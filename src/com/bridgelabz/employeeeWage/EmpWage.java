@@ -1,38 +1,39 @@
 package com.bridgelabz.employeeeWage;
-import java.util.Random;
+
 public class EmpWage
 {
-    public static void main(String[] args)
-    {
-        int empWagePerHour = 20;
-         int fullTimeHours = 0;
-         int partTimeHours = 0;
-        int workingDaysPerMonth = 0;
-        int monthlyWorkHours = 0;
+    public static final int IS_PART_TIME = 1;
+    public static final int IS_FULL_TIME = 2;
+    public static void computeEmpWage (String companyName,int empRatePerHour, int numOfWorkingDays,
+            int maxHoursPerMonth)
+            {
+                //Variables
+                int empHrs = 0;
+                int totalEmpHrs = 0;
+                int totalWorkingDays = 0;
 
-        while(workingDaysPerMonth<20 || monthlyWorkHours<100)
-        {
-            Random r = new Random();
-            int attendance = r.nextInt(3);
-            System.out.println("\nRandom value is: " +attendance);
+                //Computation
+                while (totalEmpHrs <= maxHoursPerMonth &&
+                        totalWorkingDays < numOfWorkingDays) {
+                    totalWorkingDays++;
+                    int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+                    empHrs = switch (empCheck) {
+                        case IS_PART_TIME -> 4;
+                        case IS_FULL_TIME -> 8;
+                        default -> 0;
+                    };
+                    totalEmpHrs += empHrs;
+                    System.out.println("On Day " + totalWorkingDays + " Emp Hours is :" + empHrs);
+                }
+                int totalEmpWage = totalEmpHrs * empRatePerHour;
+                System.out.println("Total Emp Wage for the company: " + companyName + " is :" + totalEmpWage);
 
-            switch (attendance) {
-                case 1 -> {
-                    fullTimeHours = fullTimeHours + 8;
-                    System.out.println(fullTimeHours);
-                }
-                case 2 -> {
-                    partTimeHours = partTimeHours + 4;
-                    System.out.println(partTimeHours);
-                }
-                default -> System.out.println("\nEmployee is Absent");
+
             }
-            workingDaysPerMonth++;
-            monthlyWorkHours = (fullTimeHours + partTimeHours);
+            public static void main (String[]args)
+            {
+                computeEmpWage("PayPal", 40, 25, 120);
+                computeEmpWage("Tesla", 35, 25, 95);
+                computeEmpWage("Airtel", 35, 25, 100);
+            }
         }
-        System.out.println("Total working hours:" +(fullTimeHours+partTimeHours));
-        int monthlyWage = empWagePerHour * monthlyWorkHours;
-        System.out.println("Total wage for the month: " + monthlyWage);
-
-    }
-}
