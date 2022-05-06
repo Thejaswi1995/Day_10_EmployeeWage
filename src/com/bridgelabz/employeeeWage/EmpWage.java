@@ -10,7 +10,7 @@ public class EmpWage
         int workingDaysPerMonth = 0;
         int monthlyWorkHours = 0;
 
-        while(workingDaysPerMonth<20)
+        while(workingDaysPerMonth<20 || monthlyWorkHours<100)
         {
             Random r = new Random();
             int attendance = r.nextInt(3);
