@@ -1,9 +1,7 @@
 package com.bridgelabz.employeeeWage;
 import java.util.ArrayList;
-public class EmpWageBuilder
+public interface EmpWageBuilder
     {
-        void createWageBuilder ()
-        {
+        int getTotalWage (String companyName);
 
-        }
     }

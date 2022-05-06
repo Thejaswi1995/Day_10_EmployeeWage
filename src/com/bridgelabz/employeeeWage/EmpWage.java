@@ -39,24 +39,26 @@ public class EmpWage
             Random num = new Random();
             int empCheck = num.nextInt(2) + 1;
 
-            if (empCheck == IS_PART_TIME)
-                if (totalWorkingHours + partTimeHour <= workingHoursPerMonth) {
+            if( empCheck == IS_PART_TIME)
+                if (totalWorkingHours + partTimeHour <= workingHoursPerMonth)
+                {
                     empWage = wagePerHour * partTimeHour;
                     totalWorkingHours = totalWorkingHours + partTimeHour;
                 }
-            if (empCheck == IS_FULL_TIME)
-                if (totalWorkingHours + fullDayHour <= workingHoursPerMonth) {
+            if ( empCheck == IS_FULL_TIME)
+                if (totalWorkingHours + fullDayHour <= workingHoursPerMonth)
+                {
                     empWage = wagePerHour * fullDayHour;
                     totalWorkingHours = totalWorkingHours + fullDayHour;
                 }
             dailyWage.add(empWage);
             totalEmpWage = totalEmpWage + empWage;
             totalWorkingDays++;
-            System.out.println("Total Wage for Day " + (totalWorkingDays) + " of " + companyName + " is : " + totalEmpWage);
+            System.out.println("Total Wage for Day " + (totalWorkingDays) +" of " +companyName +" is : " + totalEmpWage);
         }
-        System.out.println("Total Working Days " + "of " + companyName + " is : " + totalWorkingDays);
-        System.out.println("Total Working Hours " + "of " + companyName + " is : " + totalWorkingHours);
-        System.out.println("Employee Wage " + "of " + companyName + " is : " + totalEmpWage);
+        System.out.println("Total Working Days " +"of " +companyName +" is : " + totalWorkingDays);
+        System.out.println("Total Working Hours " +"of " +companyName +" is : " + totalWorkingHours);
+        System.out.println("Employee Wage " +"of " +companyName +" is : " + totalEmpWage);
     }
     @Override
     public String toString() {
@@ -80,5 +82,7 @@ public class EmpWage
         {
             System.out.println(employeeObject);
         }
+        int EmpWage = empWage.getTotalWage("Airtel");
+        System.out.println(EmpWage);
     }
 }
