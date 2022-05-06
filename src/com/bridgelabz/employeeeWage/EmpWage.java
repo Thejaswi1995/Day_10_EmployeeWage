@@ -28,39 +28,35 @@ public class EmpWage
         this.partTimeHour = partTimeHour;
     }
 
-    public void computeEmpWage()
-    {
+    public void computeEmpWage() {
         int empWage = 0;
 
         int totalEmpHrs = 0;
         int totalWorkingDays = 0;
 
-        while (totalEmpHrs <= workingHoursPerMonth && totalWorkingDays < workingDaysPerMonth)
-        {
+        while (totalEmpHrs <= workingHoursPerMonth && totalWorkingDays < workingDaysPerMonth) {
             totalWorkingDays++;
             Random num = new Random();
-            int empCheck = num.nextInt(2)+1;
+            int empCheck = num.nextInt(2) + 1;
 
-            if( empCheck == IS_PART_TIME)
-                if (totalWorkingHours + partTimeHour <= workingHoursPerMonth)
-                {
+            if (empCheck == IS_PART_TIME)
+                if (totalWorkingHours + partTimeHour <= workingHoursPerMonth) {
                     empWage = wagePerHour * partTimeHour;
                     totalWorkingHours = totalWorkingHours + partTimeHour;
                 }
-            if ( empCheck == IS_FULL_TIME)
-                if (totalWorkingHours + fullDayHour <= workingHoursPerMonth)
-                {
+            if (empCheck == IS_FULL_TIME)
+                if (totalWorkingHours + fullDayHour <= workingHoursPerMonth) {
                     empWage = wagePerHour * fullDayHour;
                     totalWorkingHours = totalWorkingHours + fullDayHour;
                 }
             dailyWage.add(empWage);
             totalEmpWage = totalEmpWage + empWage;
             totalWorkingDays++;
-            System.out.println("Total Wage for Day" + (totalWorkingDays) + " is : " + totalEmpWage);
+            System.out.println("Total Wage for Day " + (totalWorkingDays) + " of " + companyName + " is : " + totalEmpWage);
         }
-        System.out.println("Total Working Days :" + totalWorkingDays);
-        System.out.println("Total Working Hours :" + totalWorkingHours);
-        System.out.println("Employee Wage :" + totalEmpWage);
+        System.out.println("Total Working Days " + "of " + companyName + " is : " + totalWorkingDays);
+        System.out.println("Total Working Hours " + "of " + companyName + " is : " + totalWorkingHours);
+        System.out.println("Employee Wage " + "of " + companyName + " is : " + totalEmpWage);
     }
     @Override
     public String toString() {
@@ -78,8 +74,9 @@ public class EmpWage
 
     public static void main(String[] args)
     {
-        EmpWageBuilder.createEmployeeWage();
-        for (Object employeeObject : EmpWageBuilder.array)
+        EmpWageBuilder empWage = new Ewbi();
+        empWage.createWageBuilder();
+        for (Object employeeObject : Ewbi.array)
         {
             System.out.println(employeeObject);
         }
